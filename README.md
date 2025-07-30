@@ -1,6 +1,6 @@
 # ADmyBRAND AI Suite 🚀
 
-> **AI-powered Marketing Command Center** - Your AI Co-Pilot for Smarter, Faster Ad Campaigns
+> **AI-powered Marketing Command Center**
 
 ADmyBRAND AI Suite is a comprehensive marketing platform that provides unified planning, booking, and analytics for omnichannel campaigns. Built with cutting-edge AI technology, it empowers marketers to create, optimize, and scale their advertising efforts across multiple platforms with unprecedented efficiency.
 
