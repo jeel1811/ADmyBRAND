@@ -312,6 +312,7 @@ export function FAQ({ className }: FAQProps) {
 
         {/* Enhanced Contact CTA */}
         <motion.div 
+          id="contact"
           className="mt-16 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

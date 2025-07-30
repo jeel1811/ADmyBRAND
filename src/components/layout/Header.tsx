@@ -171,8 +171,11 @@ export function Header() {
                   const targetId = item.href.substring(1);
                   const targetElement = document.getElementById(targetId);
                   if (targetElement) {
+                    // Use larger offset for contact section to ensure it scrolls to the "Still have questions?" section
+                    const offset = targetId === 'contact' ? 200 : 100;
+                    const elementTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
                     window.scrollTo({
-                      top: targetElement.offsetTop - 100, // Offset for header height
+                      top: elementTop - offset,
                       behavior: 'smooth'
                     });
                   }
@@ -249,8 +252,11 @@ export function Header() {
                           const targetId = item.href.substring(1);
                           const targetElement = document.getElementById(targetId);
                           if (targetElement) {
+                            // Use larger offset for contact section to ensure it scrolls to the "Still have questions?" section
+                            const offset = targetId === 'contact' ? 200 : 100;
+                            const elementTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
                             window.scrollTo({
-                              top: targetElement.offsetTop - 100,
+                              top: elementTop - offset,
                               behavior: 'smooth'
                             });
                           }
