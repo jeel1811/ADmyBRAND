@@ -10,26 +10,6 @@ ADmyBRAND AI Suite is a comprehensive marketing platform that provides unified p
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.x-38B2AC?style=for-the-badge&logo=tailwind-css)
 
-## ✨ Features
-
-### 🤖 AI-Powered Campaign Creation
-Generate high-converting ad campaigns across multiple platforms with advanced AI that learns from your best performers.
-
-### 🔄 Cross-Channel Optimization
-Automatically allocate budget across channels based on real-time performance data to maximize ROI and campaign effectiveness.
-
-### 📊 Predictive Analytics
-Forecast campaign performance and identify trends before they happen with machine learning algorithms.
-
-### 🧪 Automated A/B Testing
-Continuously test and optimize ad creative, copy, and targeting with intelligent split testing systems.
-
-### 🎯 Real-time Performance Monitoring
-Track campaign performance across all channels with comprehensive analytics and instant insights.
-
-### 🔗 Seamless Integrations
-Connect with major advertising platforms (Google Ads, Meta, LinkedIn, TikTok), analytics tools, CRM systems, and marketing automation platforms.
-
 ## 🛠️ Tech Stack
 
 - **Frontend Framework**: Next.js 15.4.4 with App Router
@@ -55,8 +35,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/admybrand-ai-suite.git
-cd admybrand-ai-suite
+git clone https://github.com/jeel1811/ADmyBRAND.git
 ```
 
 ### 2. Install Dependencies
@@ -77,17 +56,7 @@ pnpm install
 bun install
 ```
 
-### 3. Environment Setup
-
-Create a `.env.local` file in the root directory and add your environment variables:
-
-```env
-# Add your environment variables here
-NEXT_PUBLIC_API_URL=your_api_url
-# Add other required environment variables
-```
-
-### 4. Run the Development Server
+### 3. Run the Development Server
 
 ```bash
 npm run dev
@@ -163,81 +132,6 @@ admybrand-ai-suite/
 | `npm run start` | Start production server |
 | `npm run lint` | Run ESLint |
 
-## 🌐 Deployment
-
-### Deploy on Vercel (Recommended)
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-1. Push your code to a Git repository
-2. Import your project to Vercel
-3. Configure environment variables
-4. Deploy!
-
-### Other Deployment Options
-
-- **Netlify**: Connect your Git repository and deploy automatically
-- **AWS Amplify**: Full-stack deployment with backend integration
-- **DigitalOcean App Platform**: Simple deployment with managed infrastructure
-- **Railway**: Git-based deployment with automatic builds
-
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## 🎯 Pricing Plans
-
-### Starter - $99/month ($79/month annually)
-- AI Campaign Creation
-- Up to 3 Ad Platforms
-- Basic Analytics
-- Email Support
-
-### Professional - $249/month ($199/month annually) ⭐ Most Popular
-- Everything in Starter
-- Unlimited Ad Platforms
-- Advanced Analytics
-- Cross-Channel Optimization
-- Predictive Analytics
-- Priority Support
-
-### Enterprise - Custom Pricing
-- Everything in Professional
-- Custom Integrations
-- Dedicated Account Manager
-- White-label Solutions
-- Advanced Security Features
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Support
-
-- **Documentation**: [docs.admybrand.com](https://docs.admybrand.com)
-- **Email Support**: support@admybrand.com
-- **Community**: [Discord](https://discord.gg/admybrand)
-- **Issues**: [GitHub Issues](https://github.com/your-username/admybrand-ai-suite/issues)
-
-## 🙏 Acknowledgments
-
-- Built with [Next.js](https://nextjs.org/) and [React](https://reactjs.org/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
-- Animated with [Framer Motion](https://www.framer.com/motion/)
-- 3D graphics powered by [Three.js](https://threejs.org/)
-- Icons from [Heroicons](https://heroicons.com/)
-
----
-
 <div align="center">
-  <p>Made with ❤️ by the ADmyBRAND team</p>
-  <p>© 2025 ADmyBRAND AI Suite. All rights reserved.</p>
+  <p>Made with ❤️ by the Jeel Hirani</p>
 </div>
