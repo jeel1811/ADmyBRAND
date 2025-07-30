@@ -4,7 +4,23 @@ import { forwardRef } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+// Helper types to exclude conflicting HTML props for motion components
+type MotionDivProps = Omit<React.HTMLAttributes<HTMLDivElement>, 
+  'onDrag' | 'onDragEnd' | 'onDragEnter' | 'onDragExit' | 'onDragLeave' | 'onDragOver' | 'onDragStart' | 'onDrop' |
+  'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration' | 'onTransitionEnd'
+>;
+
+type MotionHeadingProps = Omit<React.HTMLAttributes<HTMLHeadingElement>, 
+  'onDrag' | 'onDragEnd' | 'onDragEnter' | 'onDragExit' | 'onDragLeave' | 'onDragOver' | 'onDragStart' | 'onDrop' |
+  'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration' | 'onTransitionEnd'
+>;
+
+type MotionParagraphProps = Omit<React.HTMLAttributes<HTMLParagraphElement>, 
+  'onDrag' | 'onDragEnd' | 'onDragEnter' | 'onDragExit' | 'onDragLeave' | 'onDragOver' | 'onDragStart' | 'onDrop' |
+  'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration' | 'onTransitionEnd'
+>;
+
+export interface CardProps extends MotionDivProps {
   variant?: 'default' | 'feature' | 'testimonial' | 'pricing';
   isHoverable?: boolean;
   isGlass?: boolean;
@@ -111,7 +127,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>((
 Card.displayName = 'Card';
 
 // Card subcomponents with enhanced animations
-const CardHeader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({
+const CardHeader = forwardRef<HTMLDivElement, MotionDivProps>(({
   className,
   ...props
 },
@@ -128,7 +144,7 @@ ref
 ));
 CardHeader.displayName = 'CardHeader';
 
-const CardTitle = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(({
+const CardTitle = forwardRef<HTMLHeadingElement, MotionHeadingProps>(({
   className,
   ...props
 },
@@ -145,7 +161,7 @@ ref
 ));
 CardTitle.displayName = 'CardTitle';
 
-const CardDescription = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(({
+const CardDescription = forwardRef<HTMLParagraphElement, MotionParagraphProps>(({
   className,
   ...props
 },
@@ -162,7 +178,7 @@ ref
 ));
 CardDescription.displayName = 'CardDescription';
 
-const CardContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({
+const CardContent = forwardRef<HTMLDivElement, MotionDivProps>(({
   className,
   ...props
 },
@@ -179,7 +195,7 @@ ref
 ));
 CardContent.displayName = 'CardContent';
 
-const CardFooter = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({
+const CardFooter = forwardRef<HTMLDivElement, MotionDivProps>(({
   className,
   ...props
 },

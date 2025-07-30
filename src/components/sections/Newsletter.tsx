@@ -66,7 +66,7 @@ export function Newsletter({
       opacity: 1,
       y: 0,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 300,
         damping: 24,
       },
@@ -79,7 +79,7 @@ export function Newsletter({
       opacity: 1,
       scale: 1,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 300,
         damping: 20,
       },
@@ -134,7 +134,7 @@ export function Newsletter({
             placeholder="your.email@example.com"
             type="email"
             error={errors.email?.message}
-            success={touchedFields.email && !errors.email ? 'Valid email' : undefined}
+            isSuccess={touchedFields.email && !errors.email}
             {...register('email')}
           />
         </div>

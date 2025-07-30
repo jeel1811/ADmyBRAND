@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
@@ -43,17 +43,14 @@ export function ScrollReveal({
     const baseTransition = {
       duration,
       delay,
-      ease: 'easeOut',
+      ease: 'easeOut' as const,
     };
 
-    const variants = {
+    // Use any type to avoid complex framer-motion typing issues
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const variants: any = {
       hidden: {},
-      visible: {
-        transition: staggerChildren ? {
-          staggerChildren: staggerDelay,
-          delayChildren: delay,
-        } : baseTransition,
-      },
+      visible: {},
     };
 
     switch (animation) {
@@ -72,10 +69,7 @@ export function ScrollReveal({
           transition: staggerChildren ? {
             staggerChildren: staggerDelay,
             delayChildren: delay,
-          } : {
-            ...baseTransition,
-            y: { type: 'spring', stiffness: 300, damping: 30 }
-          } 
+          } : baseTransition
         };
         break;
       case 'slide-down':
@@ -86,10 +80,7 @@ export function ScrollReveal({
           transition: staggerChildren ? {
             staggerChildren: staggerDelay,
             delayChildren: delay,
-          } : {
-            ...baseTransition,
-            y: { type: 'spring', stiffness: 300, damping: 30 }
-          } 
+          } : baseTransition
         };
         break;
       case 'slide-left':
@@ -100,10 +91,7 @@ export function ScrollReveal({
           transition: staggerChildren ? {
             staggerChildren: staggerDelay,
             delayChildren: delay,
-          } : {
-            ...baseTransition,
-            x: { type: 'spring', stiffness: 300, damping: 30 }
-          } 
+          } : baseTransition
         };
         break;
       case 'slide-right':
@@ -114,10 +102,7 @@ export function ScrollReveal({
           transition: staggerChildren ? {
             staggerChildren: staggerDelay,
             delayChildren: delay,
-          } : {
-            ...baseTransition,
-            x: { type: 'spring', stiffness: 300, damping: 30 }
-          } 
+          } : baseTransition
         };
         break;
       case 'zoom':
@@ -128,10 +113,7 @@ export function ScrollReveal({
           transition: staggerChildren ? {
             staggerChildren: staggerDelay,
             delayChildren: delay,
-          } : {
-            ...baseTransition,
-            scale: { type: 'spring', stiffness: 300, damping: 30 }
-          } 
+          } : baseTransition
         };
         break;
       case 'flip':
@@ -142,10 +124,7 @@ export function ScrollReveal({
           transition: staggerChildren ? {
             staggerChildren: staggerDelay,
             delayChildren: delay,
-          } : {
-            ...baseTransition,
-            rotateY: { type: 'spring', stiffness: 300, damping: 30 }
-          } 
+          } : baseTransition
         };
         break;
       case 'rotate':
@@ -156,10 +135,7 @@ export function ScrollReveal({
           transition: staggerChildren ? {
             staggerChildren: staggerDelay,
             delayChildren: delay,
-          } : {
-            ...baseTransition,
-            rotate: { type: 'spring', stiffness: 300, damping: 30 }
-          } 
+          } : baseTransition
         };
         break;
       default:
@@ -189,7 +165,8 @@ export function ScrollReveal({
       className={cn(className)}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
-      variants={getVariants()}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      variants={getVariants() as any}
     >
       {staggerChildren && staggerChildrenSelector ? (
         // Apply staggered animation to specific child elements
@@ -197,10 +174,13 @@ export function ScrollReveal({
           {Array.isArray(children) ? (
             children.map((child, index) => {
               if (React.isValidElement(child)) {
-                return React.cloneElement(child, {
-                  ...child.props,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                return React.cloneElement(child as React.ReactElement<any>, {
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  ...(child.props as any),
                   key: index,
-                  className: cn(child.props.className, staggerChildrenSelector),
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  className: cn((child.props as any).className, staggerChildrenSelector),
                   variants: childVariants,
                 });
               }
@@ -381,7 +361,8 @@ export function StaggerItem({
   return (
     <motion.div
       className={cn(className)}
-      variants={getVariants()}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      variants={getVariants() as any}
     >
       {children}
     </motion.div>

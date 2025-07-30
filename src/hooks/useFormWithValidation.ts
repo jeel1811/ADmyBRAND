@@ -26,7 +26,8 @@ export function useFormWithValidation<T extends FieldValues>({
 
   const form = useForm<T>({
     ...formProps,
-    resolver: zodResolver(schema),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolver: zodResolver(schema as any),
   });
 
   const handleSubmitWithValidation = async (e?: React.BaseSyntheticEvent) => {

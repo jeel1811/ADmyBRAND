@@ -1,10 +1,10 @@
 import { useInView } from 'react-intersection-observer';
-import { useAnimation, AnimationControls } from 'framer-motion';
+import { useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
 
 export function useFeatureAnimation(delay: number = 0): {
   ref: (node?: Element | null) => void;
-  controls: AnimationControls;
+  controls: ReturnType<typeof useAnimation>;
   inView: boolean;
 } {
   const controls = useAnimation();

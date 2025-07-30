@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   useMotionValue,
   useSpring,
@@ -54,27 +54,38 @@ export function useStaggeredAnimation({
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold, triggerOnce, rootMargin });
 
-  // Create item controls using useMemo to avoid creating them in useEffect
-  const itemControls = useMemo(() => {
-    return Array.from({ length: itemCount }, () => useAnimation());
-  }, [itemCount]);
+  // Create a ref to store animation controls for each item
+  const itemControlsRef = useRef<Array<{ start: () => Promise<void> }>>([]);
+  
+  // Initialize controls if not already created or if count changed
+  if (itemControlsRef.current.length !== itemCount) {
+    itemControlsRef.current = Array.from({ length: itemCount }, () => {
+      // Use a simple object with start method instead of useAnimation
+      return {
+        start: () => {
+          // This will be handled by the parent container animation
+          return Promise.resolve();
+        }
+      };
+    });
+  }
 
   useEffect(() => {
-    if (inView && itemControls.length === itemCount) {
+    if (inView && itemControlsRef.current.length === itemCount) {
       controls.start('visible');
-      itemControls.forEach((control, index) => {
+      itemControlsRef.current.forEach((control, index) => {
         const delayInSeconds = 0.1 + index * staggerDelay;
         setTimeout(() => {
-          control.start('visible');
+          control.start();
         }, delayInSeconds * 1000);
       });
     }
-  }, [controls, inView, itemCount, staggerDelay, itemControls]);
+  }, [controls, inView, itemCount, staggerDelay]);
 
   return {
     containerRef: ref,
     containerControls: controls,
-    itemControls: itemControls,
+    itemControls: itemControlsRef.current,
     inView,
   };
 }

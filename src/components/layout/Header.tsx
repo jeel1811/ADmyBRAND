@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
+import { ButtonLink } from '@/components/ui/ButtonLink';
 // import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { cn } from '@/lib/utils';
 // import { useSmoothScroll } from '@/hooks/useSmoothScroll';
@@ -151,14 +151,14 @@ export function Header() {
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) =>
             item.isButton ? (
-              <Button
+              <ButtonLink
                 key={item.label}
                 href={item.href}
                 variant={item.variant || 'primary'}
                 size="md"
               >
                 {item.label}
-              </Button>
+              </ButtonLink>
             ) : (
               <Link
                 key={item.label}
@@ -231,7 +231,7 @@ export function Header() {
                 {navItems.map((item) => (
                   <motion.div key={item.label} variants={menuItemVariants}>
                     {item.isButton ? (
-                      <Button
+                      <ButtonLink
                         href={item.href}
                         variant={item.variant || 'primary'}
                         size="lg"
@@ -239,7 +239,7 @@ export function Header() {
                         className="w-full"
                       >
                         {item.label}
-                      </Button>
+                      </ButtonLink>
                     ) : (
                       <Link
                         href={item.href}
